@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "0a5452be-a465-4297-af4d-3b7aa8301e3e",
+		"name": "Backend2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "7995016"
+	},
+	"item": [
+		{
+			"name": "GetUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/users?page=0&size=5",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateNewUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"login\":\"newuser\",\n    \"password\":\"newpass1\",\n    \"email\":\"a@a.ru\",\n    \"client_name\":\"clientname\",\n    \"address\" : {\n        \"country\":\"Russia\",\n        \"city\":\"Moscow\",\n        \"street\":\"Arbat\",\n        \"house\":\"13\",\n        \"apartment\":\"16\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{server}}/users"
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{server}}/users/11"
+			},
+			"response": []
+		},
+		{
+			"name": "GetSupliers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{server}}/suppliers"
+			},
+			"response": []
+		},
+		{
+			"name": "GetImages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{server}}/images"
+			},
+			"response": []
+		},
+		{
+			"name": "GetImageByUUID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{server}}/images/ba2fe117-5c34-46ec-a148-34fbdd359145"
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateImageByUUID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/michael/Desktop/blank.jpg"
+						}
+					]
+				},
+				"url": "{{server}}/images/ba2fe117-5c34-46ec-a148-34fbdd359145"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteImageByUUID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{server}}/images/ba2fe117-5c34-46ec-a148-34fbdd359145"
+			},
+			"response": []
+		},
+		{
+			"name": "UploadImage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/michael/Desktop/avatar.png"
+						}
+					]
+				},
+				"url": "{{server}}/images"
+			},
+			"response": []
+		},
+		{
+			"name": "GetSuplierById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{server}}/suppliers/5"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateNewSupplier",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"newsupplier\",\n    \"phone_number\":\"+79991002211\",\n    \"address\" : {\n        \"country\":\"Russia\",\n        \"city\":\"Moscow\",\n        \"street\":\"Arbat\",\n        \"house\":\"13\",\n        \"apartment\":\"16\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{server}}/suppliers"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "protocol",
+			"value": "http",
+			"type": "string"
+		},
+		{
+			"key": "host",
+			"value": "localhost",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "8080",
+			"type": "string"
+		},
+		{
+			"key": "server",
+			"value": "{{protocol}}://{{host}}:{{port}}",
+			"type": "string"
+		},
+		{
+			"key": "api_ver",
+			"value": "/api/v1",
+			"type": "string"
+		}
+	]
+}
